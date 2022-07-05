@@ -1,38 +1,132 @@
-.App {
+
+.app {
+  background-color: aliceblue;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hands-container{
+  width: 1000px;
+  height: 600px;
+  
+}
+
+.hand{
+  display: inline-block;
+  margin: 5px;
+  width: 200px;
+  height: 100px;
+  cursor: pointer;
+
+}
+
+.hand-image{
+  width: 100px;
+  height: 100px;
+
+}
+
+/* global */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background-color: black;
+}
+
+.container {
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+.text-center {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text-right {
+  text-align: right;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.middle {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* grid */
+.grid {
+  display: grid;
+}
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* main screen */
+.mainscreen {
+  padding: 20px;
+  color: black;
+
+}
+
+.mainscreen--title {
+  margin: 0 0 50px;
+  font-size: 3em;
+  color: black;
+}
+
+.mainscreen--menu {
+  padding: 20px 10px;
+}
+
+
+
+
+/* buttons */
+.button {
+ 
+  width: 150px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 10px 0;
+
+  border-radius: 15px;
+
+  cursor: pointer;
+}
+
+/* game screen */
+.gamescreen {
+  padding: 20px;
+  width: 100%;
+
+}
+
+.gamescreen--player {
+  padding: 10px;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+}
+
+.gamescreen--hands {
+  background-color: transparent;
+  width: 100%;
+  height: 100px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  cursor: pointer;
+}
+
+/* finish screen */
+.finishscreen{
+  color: beige;
 }
