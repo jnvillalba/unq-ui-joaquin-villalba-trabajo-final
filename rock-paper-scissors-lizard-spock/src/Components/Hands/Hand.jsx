@@ -1,14 +1,14 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 
-export default function Hand({name, image, beats, loses}) {
+export default function Hand({name, image, setPlayerHand}) {
   
     return (
-    <div className='hand'>
-      Name = {name}
-      <img className='hand-image' src={image} alt={name}/>
-      
-      
-    </div>
+      <button className="btn-circle" type='button' onClick={setPlayerHand} > 
+        <img className='hand-image' 
+              src={image} 
+              alt={name}
+        /> 
+      </button>
   )
 }
