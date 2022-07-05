@@ -9,7 +9,7 @@ const handsList = [
 
     {   
         id:2,
-        image: 'https://w7.pngwing.com/pngs/16/569/png-transparent-emoji-paper-sticker-sms-email-wind-ink-angle-rectangle-sticker.png',
+        image: 'https://hotemoji.com/images/emoji/g/7tzudl665jfg.png',
         name: 'Paper'
         
     },
