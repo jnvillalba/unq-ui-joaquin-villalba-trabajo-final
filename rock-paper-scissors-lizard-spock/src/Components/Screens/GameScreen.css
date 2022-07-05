@@ -1,0 +1,21 @@
+.gamescreen {
+    padding: 20px;
+    width: 100%;
+  
+  }
+  
+  .gamescreen-player {
+    padding: 10px;
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .gamescreen-hands {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  

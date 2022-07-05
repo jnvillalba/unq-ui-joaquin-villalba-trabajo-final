@@ -2,19 +2,17 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import Duel from './Duel'
+import './GameScreen.css'
 
 import { handsList } from '../Hands/handsList'
 import Hand from '../Hands/Hand'
+import Score from '../Score'
 
 export default function GameScreen() {
   return (
     <div className='gamescreen'>
+        <Score/>
         
-        <div className='gamescreen--players grid grid-2'>
-            <div className='gamescreen--player'>Player:</div>
-            <div className='gamescreen--player text-right'>Computer:</div>
-        </div>
-
         <Duel
             //playerOption={gameState.playerOption} 
             //botOption={gameState.botOption}  
@@ -22,7 +20,7 @@ export default function GameScreen() {
 
         <div>
             <div>Select a Hand:</div>
-            <div className='gamescreen-hands grid grid-4'>
+            <div className='gamescreen-hands'>
                 <div className='hand'>
                 { 
                     handsList.map((hand) => (
