@@ -1,0 +1,14 @@
+.mainscreen {
+    padding: 20px;
+    color: black;
+  }
+
+  .mainscreen-title {
+    margin: 0 0 50px;
+    font-size: 3em;
+    color: black;
+  }
+  
+  .mainscreen-menu {
+    padding: 20px 10px;
+  }

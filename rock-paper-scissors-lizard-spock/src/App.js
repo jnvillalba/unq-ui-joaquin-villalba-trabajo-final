@@ -1,25 +1,23 @@
 import './App.css';
 import {useEffect, useState} from 'react';
+import {BrowserRouter, Routes, Route}from 'react-router-dom'
 import MainScreen from './Components/Screens/MainScreen';
 import GameScreen from './Components/Screens/GameScreen';
 
 function App() {
 
-  const[stateGame, setStateGame] = useState(0)
-
-  const changeStateGame = (value) => {
-    setStateGame(value)
-  }
-
   return(
-    <div className='app'>
-      { stateGame === 0 ?
-        <MainScreen
-          setStart = {changeStateGame}
-        /> : <GameScreen/>
-      }
-      
-    </div>
+    <>
+
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<MainScreen/>} />
+        <Route exact path='/GameScreen' element={<GameScreen/>} />
+      </Routes>
+    </BrowserRouter>
+    
+    </>
+    
 
   )
 
@@ -34,3 +32,14 @@ export default App;
 *Computer
 -elegir random mano
 */
+
+/**<div className='app'>
+      { stateGame === 0 ?
+        <MainScreen
+          setStart = {changeStateGame}
+        /> : <GameScreen/>
+      }
+      
+    </div> */
+
+    ///
