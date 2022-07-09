@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Alert} from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import Duel from './Duel'
 import './GameScreen.css'
@@ -25,16 +25,29 @@ export default function GameScreen() {
         return randomHand 
     }
 
+     
+    const winAlert = () =>{
+        <Alert variant='success'> Player Win </Alert>
+    }
+
+    const loseAlert = () =>{
+        <Alert variant='danger'> Computer Win </Alert>
+    }
+
+    const tieAlert = () =>{
+        <Alert variant='warning'> Tie, select again </Alert>
+    }
+
     const fight = () => {
         var winner = Rules(playerHand,computerHand);
         if (winner = playerHand){
             setPlayerScore(playerScore+1)
-            //mostrar cartel player win
+            winAlert()
         }if((winner = computerHand)){
             setComputerScore(computerScore+1)
-            //mostrar cartel pc win
+            loseAlert()
         }if((winner = 0)){
-            //Empate jugar de nuevo
+            tieAlert()
         }
     }
 
