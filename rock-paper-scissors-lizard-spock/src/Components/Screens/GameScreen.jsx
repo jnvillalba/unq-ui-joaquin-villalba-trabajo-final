@@ -7,14 +7,16 @@ import './GameScreen.css'
 import { handsList } from '../Hands/handsList'
 import Hand from '../Hands/Hand'
 import Score from '../Score'
+import Rules from '../Rules'
 
 export default function GameScreen() {
 
+    const [gameState, setGameState] = useState()
     const [player, setPlayer] = useState()
     const [playerHand, setPlayerHand] = useState(null)
+    const [playerScore, setPlayerScore] = useState(0)
     const [computerHand, setComputerHand] = useState('')
-    const [gameState, setGameState] = useState()
-    const [score, setScore] = useState(0)
+    const [computerScore, setComputerScore] = useState(0)
 
     const randomComputerHand = () => {
         const selectedHand = Math.floor(Math.random() * handsList.length)
@@ -23,14 +25,31 @@ export default function GameScreen() {
         return randomHand 
     }
 
-    const handleSelect = (pick) => {
-        setPlayerHand(pick);
-        setComputerHand(randomComputerHand());  
+    const fight = () => {
+        var winner = Rules(playerHand,computerHand);
+        if (winner = playerHand){
+            setPlayerScore(playerScore+1)
+            //mostrar cartel player win
+        }if((winner = computerHand)){
+            setComputerScore(computerScore+1)
+            //mostrar cartel pc win
+        }if((winner = 0)){
+            //Empate jugar de nuevo
+        }
+    }
+
+    const handleSelect = (hand) => {
+        setPlayerHand(hand);
+        setComputerHand(randomComputerHand());
+        fight()  
     }
 
   return (
     <div className='gamescreen'>
-        <Score/>
+        <Score 
+            playerScore ={playerScore}
+            computerScore ={computerScore}
+        />
 
         <Duel
             playerOption = {playerHand}
