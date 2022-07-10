@@ -8,18 +8,11 @@
   align-items: center;
 }
 
-.hands-container{
-  width: 1000px;
-  height: 600px;
-  margin-top: 10px;
-  
-}
-
 .hand{
   display: flex;
   margin: 0px;
-  width: 200px;
-  height: 100px;
+  width: 100%;
+
   cursor: pointer;
 }
 
@@ -27,6 +20,12 @@
   width: 50px;
   height: 50px;
   cursor: pointer;
+}
+
+.hand-name{
+  justify-content: center;
+  align-items: center;
+
 }
 
 .btn-circle {

@@ -11,8 +11,8 @@ import Rules from '../Rules'
 
 export default function GameScreen() {
 
-    const [gameState, setGameState] = useState()
-    const [player, setPlayer] = useState()
+    //const [gameState, setGameState] = useState()
+    //const [player, setPlayer] = useState()
     const [playerHand, setPlayerHand] = useState(null)
     const [playerScore, setPlayerScore] = useState(0)
     const [computerHand, setComputerHand] = useState('')
@@ -27,7 +27,7 @@ export default function GameScreen() {
 
      
     const winAlert = () =>{
-        <Alert variant='success'> Player Win </Alert>
+        <Alert variant='success'> Player Win </Alert> 
     }
 
     const loseAlert = () =>{
@@ -39,13 +39,14 @@ export default function GameScreen() {
     }
 
     const fight = () => {
-        var winner = Rules(playerHand,computerHand);
-        if (winner = playerHand){
-            setPlayerScore(playerScore+1)
+        var winner = Rules.getWinner(playerHand,computerHand);
+        if (winner === playerHand){
             winAlert()
-        }if((winner = computerHand)){
-            setComputerScore(computerScore+1)
+            setPlayerScore(playerScore+1)
+            
+        }if((winner === computerHand)){
             loseAlert()
+            setComputerScore(computerScore+1)
         }if((winner = 0)){
             tieAlert()
         }
@@ -69,24 +70,19 @@ export default function GameScreen() {
             botOption = {computerHand}
         />
 
-        <div>
+        <div className='hands-container'>
             <div>Select a Hand:</div>
             <div className='gamescreen-hands'>
-                <div className='hand'>
                 { 
                     handsList.map((hand) => (
                         <Hand key={hand.id} image={hand.image} 
-                            name={hand.name} setAnItem={handleSelect}
+                            name={hand.name} setAHand={handleSelect}
                         />
                     ))
-                }
-                </div>    
+                }   
             </div>
         </div>
 
-
-        {randomComputerHand}
-        
         <div className='text-center'>
             <Button> Restart Game</Button>
         </div>

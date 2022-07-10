@@ -3,20 +3,14 @@ import { Component } from 'react'
 import { useEffect, useState } from 'react'
 import Player from '../Player'
 
-export default function Hand ({name, image, setAnItem}) {
+export default function Hand ({name, image, setAHand}) {
 
     return (
-      <div>
-        <button className="btn-circle"  onClick={() => setAnItem(`${name}`)} > 
-            <img className='hand-image' 
-                  src={image} 
-                  alt={name}
-            /> 
-          {name}
-        </button>
-      </div>
-      
-  )
+      <button className="btn-circle"  onClick={() => setAHand(`${name}`)} > 
+        <img className='hand-image' src={image} alt={name}/> 
+        <p>{name}</p>
+      </button>
+    )
     
 }
 

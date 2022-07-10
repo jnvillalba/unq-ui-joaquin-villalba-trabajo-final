@@ -1,14 +1,4 @@
-import React from 'react'
-
-export default function Rules(playerHand, pcHand) {
-
-    const PLAYER_HANDS = {
-        Rock: ROCK_MATCHES,
-        Paper: PAPER_MATCHES,
-        Scissors: SCISSORS_MATCHES,
-        Lizard: LIZARD_MATCHES,
-        Spock: SPOCK_MATCHES,
-    }
+const getWinner = (playerHand, pcHand) => {
 
     const ROCK_MATCHES = {
         Rock: "Tie",
@@ -49,23 +39,35 @@ export default function Rules(playerHand, pcHand) {
         Lizard: "Lose",
         Spock: "Tie",
     }
-  
 
-    const playerHandMatches = PLAYER_HANDS[playerHand]
+    const PLAYER_HAND_ROCK_MATCHES = {
+        Rock: ROCK_MATCHES,
+        Paper: PAPER_MATCHES,
+        Scissors: SCISSORS_MATCHES,
+        Lizard: LIZARD_MATCHES,
+        Spock: SPOCK_MATCHES,
+    }    
+
+    const playerHandMatches = PLAYER_HAND_ROCK_MATCHES[playerHand]
     console.log( "Match " + playerHandMatches)
     
     const winner = playerHandMatches[pcHand]
     console.log( "Winner " + winner)
+
     
-    if (winner == "Win"){
+    if (winner === "Win"){
         return playerHand
-    }if (winner == "Loose") {
+    }if (winner === "Lose") {
         return pcHand
     } else {
         return 0
     }
     
   }
+
+  export default {
+    getWinner
+};
   
   /*
   const getWinner =(playerHand, pcHand) => {
