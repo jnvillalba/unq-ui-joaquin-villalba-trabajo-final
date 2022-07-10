@@ -1,6 +1,7 @@
 .gamescreen {
     padding: 20px;
     width: 100%;
+    background-image: linear-gradient(to right, #24243e, #302b63, #24243e);
   }
   
   .gamescreen-hands {
@@ -13,5 +14,5 @@
   .hands-container{
     width: 100%;
     margin-top: 20px;
-    
+    color: aliceblue;
   }

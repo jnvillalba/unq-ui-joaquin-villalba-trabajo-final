@@ -49,10 +49,9 @@ const getWinner = (playerHand, pcHand) => {
     }    
 
     const playerHandMatches = PLAYER_HAND_ROCK_MATCHES[playerHand]
-    console.log( "Match " + playerHandMatches)
     
     const winner = playerHandMatches[pcHand]
-    console.log( "Winner " + winner)
+    console.log( "Player " + winner)
 
     
     if (winner === "Win"){
@@ -63,6 +62,8 @@ const getWinner = (playerHand, pcHand) => {
         return 0
     }
     
+    console.log( "Winner " + winner)
+
   }
 
   export default {
