@@ -11,6 +11,10 @@ export default function MainScreen(props) {
   return (
     <div className='mainscreen text-center'>
         <h1 className='mainscreen-title'> Rock, Paper, Scissors, Lizard, Spock </h1>
+        <div> 
+          <img className='gameLogo' src="https://www.pngkey.com/png/full/926-9261970_rock-paper-scissors-lizard-spock-is-a-funny.png" 
+                alt="gameLogo" />
+        </div>
         <div className='mainscreen-menu'>
             <Button onClick={goToGameScreen}>Start</Button>
         </div>

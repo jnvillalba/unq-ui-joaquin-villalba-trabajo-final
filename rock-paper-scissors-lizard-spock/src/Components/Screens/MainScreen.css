@@ -1,14 +1,21 @@
 .mainscreen {
     padding: 20px;
-    color: black;
+    color: aliceblue;
+    background-image: linear-gradient(to right, #24243e, #302b63, #24243e);
   }
 
-  .mainscreen-title {
+.mainscreen-title {
     margin: 0 0 50px;
     font-size: 3em;
-    color: black;
-  }
+    color: aliceblue;
+}
   
-  .mainscreen-menu {
+.mainscreen-menu {
     padding: 20px 10px;
-  }
+}
+
+
+.gameLogo{
+  text-align:center;
+  width: 150px;
+}

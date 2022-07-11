@@ -1,10 +1,9 @@
 .score-player {
     display: inline-block;
-    padding: 5px;
+    padding: 10px;
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     color: aliceblue;
-    
   }
