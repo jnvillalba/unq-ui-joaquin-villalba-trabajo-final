@@ -10,7 +10,7 @@ export default function FinishScreen() {
     const computerScore = location?.state?.computerScore
 
     const showWinner = () =>{
-        if(playerScore = computerScore){
+        if(playerScore === computerScore){
             return "It's A Tie!"
         } if (playerScore > computerScore) {
             return "You Win!"

@@ -1,7 +1,4 @@
 import React from 'react'
-import { Component } from 'react'
-import { useEffect, useState } from 'react'
-import Player from '../Player'
 
 export default function Hand ({name, image, setAHand}) {
 
@@ -13,12 +10,5 @@ export default function Hand ({name, image, setAHand}) {
     )
     
 }
-
-
-
-  /*const setPlayerHand = () => {
-    <Player selectedHand={name}/>
-    console.table(<Player/>)
-  }*/
 
   

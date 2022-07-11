@@ -1,4 +1,4 @@
-import { Button, InputGroup } from 'react-bootstrap'
+import { Button} from 'react-bootstrap'
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import './MainScreen.css'

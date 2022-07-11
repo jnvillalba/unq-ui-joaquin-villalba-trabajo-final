@@ -59,42 +59,12 @@ const getWinner = (playerHand, pcHand) => {
     }if (winner === "Lose") {
         return pcHand
     } else {
-        return 0
+        return "tie"
     }
-    
-    console.log( "Winner " + winner)
 
   }
 
   export default {
-    getWinner
+    getWinner,
+
 };
-  
-  /*
-  const getWinner =(playerHand, pcHand) => {
-    switch(playerHand){
-        case("Rock") : 
-            return ROCK_MATCHES[pcHand]
-        case("Paper") : 
-            return PAPER_MATCHES[pcHand]
-        case("Scissors") : 
-            return SCISSORS_MATCHES[pcHand]
-        case("Lizard") : 
-            return LIZARD_MATCHES[pcHand]
-        case("Spock") : 
-            return SPOCK_MATCHES[pcHand]
-    }
-    
-    }*/
-
-
-/*if (playerHand = "Rock"){
-        const winner = ROCK_MATCHES[pcHand]
-    
-    } if (playerHand = "Paper") {
-        const winner = PAPER_MATCHES[pcHand]
-        
-    } else {
-        
-    }
-    return winner */
