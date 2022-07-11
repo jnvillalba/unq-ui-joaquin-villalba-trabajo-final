@@ -28,3 +28,15 @@
     align-items: center;
     font-size: 30px;
   }
+
+  .winner-text{
+    font-weight: bold;
+    position: absolute;
+    bottom: 65%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }

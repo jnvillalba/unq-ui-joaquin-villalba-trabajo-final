@@ -1,5 +1,4 @@
 import React, {useState } from 'react'
-import {Alert} from 'react-bootstrap'
 import { useLocation, useNavigate} from 'react-router-dom'
 import Duel from './Duel'
 import Hand from '../Hands/Hand'
@@ -7,21 +6,28 @@ import Score from '../Score'
 import Rules from '../Rules'
 import './GameScreen.css'
 import { handsList } from '../Hands/handsList'
-import { useEffect } from 'react'
+import utils from './utils'
+import { useRef } from 'react'
 
 export default function GameScreen() {
 
-    const [playerHand, setPlayerHand] = useState('')
+    const playerHand = useRef("")
     const [playerScore, setPlayerScore] = useState(0)
-    const [computerHand, setComputerHand] = useState('')
+    const computerHand = useRef("")
     const [computerScore, setComputerScore] = useState(0)
     const [actualRound, setActualRound] = useState(1)
+    const [roundWinner, setRoundWinner] = useState("")
     const location = useLocation()
     const maxRounds = location?.state?.rounds
     const navigate = useNavigate()
     const goToGameScreen = () => navigate('/FinishScreen',{state:{playerScore, computerScore}})
   
-    //useEffect((hand) => { setPlayerHand(hand) }, [playerHand])
+    const setPlayerHand = (hand) =>{
+        playerHand.current = hand
+    }
+    const setComputerHand = (hand) =>{
+        computerHand.current = hand
+    }
 
     const randomComputerHand = () => {
         const selectedHand = Math.floor(Math.random() * handsList.length)
@@ -32,28 +38,33 @@ export default function GameScreen() {
 
     const handleSelect = (hand) => {
         setPlayerHand(hand)
-        setComputerHand(randomComputerHand())
+        console.log("P: " + hand)
+        setComputerHand("Paper")
+        console.log("Pc: " + Object.values(computerHand))
         fight()
     }  
     
     const fight = () => {
-        var winner = Rules.getWinner(playerHand,computerHand);
-        if (winner === playerHand){
+        var roundWinner = Rules.getWinner(playerHand,computerHand)
+        console.log('roundResult: ' + roundWinner)
+        if (roundWinner === "Win"){
             setPlayerScore(playerScore+1)
-        }if((winner === computerHand)){
+        }if((roundWinner === "Lose")){
             setComputerScore(computerScore+1)
-        }if((winner === "Tie")){
+        }if((roundWinner === "Tie")){
             console.log("Tie")
         }
+        setRoundWinner(roundWinner)
         setActualRound(actualRound+1)
-        deleteDuelAfter(1000)
-        console.log('Winner: ' + winner)
+        deleteDuelAfter(2000)
+        
     }
 
     const deleteDuelAfter = (timeOut) =>{
         setTimeout(()  => {
-            setPlayerHand()
-            setComputerHand('')
+            setPlayerHand("")
+            setComputerHand("")
+            setRoundWinner("")
         },timeOut)
     } 
 
@@ -73,10 +84,12 @@ export default function GameScreen() {
         <h1 className='text-center'> Round {actualRound} of {maxRounds}</h1>
         
         <Duel
-            playerOption = {playerHand}
-            botOption = {computerHand}
+            playerOption = {Object.values(playerHand).toString()}
+            botOption = {Object.values(computerHand).toString()}
             figth = {fight}
+            winner = {roundWinner}
         />
+        
 
         <div className='hands-container'>
             <div>Select a Hand:</div>
@@ -91,22 +104,6 @@ export default function GameScreen() {
             </div>
         </div> 
 
-        
-        
     </div>
   )
 }
-
-
-
-    /*const winAlert = (winner) =>{
-        const alert =(variant) =>  <Alert variant={variant}> Player Win </Alert> 
-        if (winner === playerHand){
-            return alert('sucess')
-        }if((winner === computerHand)){
-            return alert('danger')
-        }if((winner = 0)){
-            return alert('warning')
-        }
-        return alert
-    }*/

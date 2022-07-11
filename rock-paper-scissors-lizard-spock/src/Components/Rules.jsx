@@ -1,13 +1,14 @@
 const getWinner = (playerHand, pcHand) => {
 
     const ROCK_MATCHES = {
-        Rock: "Tie",
+        Rock:  "Tie",
         Paper: "Lose",
         Scissors: "Win",
         Lizard: "Win",
         Spock: "Lose",
+        
     }
-
+    
     const PAPER_MATCHES = {
         Rock: "Win",
         Paper: "Tie",
@@ -15,7 +16,7 @@ const getWinner = (playerHand, pcHand) => {
         Lizard: "Lose",
         Spock: "Win",
     }
-
+    
     const SCISSORS_MATCHES = {
         Rock: "Lose",
         Paper: "Win",
@@ -23,7 +24,7 @@ const getWinner = (playerHand, pcHand) => {
         Lizard: "Win",
         Spock: "Lose",
     }
-
+    
     const LIZARD_MATCHES = {
         Rock: "Lose",
         Paper: "Win",
@@ -31,7 +32,7 @@ const getWinner = (playerHand, pcHand) => {
         Lizard: "Tie",
         Spock: "Win",
     }
-
+    
     const SPOCK_MATCHES = {
         Rock: "Win",
         Paper: "Lose",
@@ -39,32 +40,35 @@ const getWinner = (playerHand, pcHand) => {
         Lizard: "Lose",
         Spock: "Tie",
     }
-
-    const PLAYER_HAND_ROCK_MATCHES = {
+    
+    const PLAYER_HAND_MATCHES = {
         Rock: ROCK_MATCHES,
         Paper: PAPER_MATCHES,
         Scissors: SCISSORS_MATCHES,
         Lizard: LIZARD_MATCHES,
         Spock: SPOCK_MATCHES,
     }    
-
-    const playerHandMatches = PLAYER_HAND_ROCK_MATCHES[playerHand]
     
-    const winner = playerHandMatches[pcHand]
+    var pHand = Object.values(playerHand).toString()
+    console.log("1"+pHand)
+    var comHand = Object.values(pcHand).toString()
+    console.log("2"+ comHand)
+
+    const playerHandMatches = PLAYER_HAND_MATCHES[pHand]
+    
+    const winner = playerHandMatches[comHand]
+        
     console.log( "Player " + winner)
-
     
-    if (winner === "Win"){
-        return playerHand
-    }if (winner === "Lose") {
-        return pcHand
-    } else {
-        return "tie"
+    
+    return winner
+    
     }
 
-  }
-
-  export default {
+const exportedObject = {
     getWinner,
-
+    
 };
+
+export default exportedObject;
+
