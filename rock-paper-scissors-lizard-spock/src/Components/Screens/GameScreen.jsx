@@ -7,6 +7,7 @@ import Score from '../Score'
 import Rules from '../Rules'
 import './GameScreen.css'
 import { handsList } from '../Hands/handsList'
+import { useEffect } from 'react'
 
 export default function GameScreen() {
 
@@ -20,6 +21,8 @@ export default function GameScreen() {
     const navigate = useNavigate()
     const goToGameScreen = () => navigate('/FinishScreen',{state:{playerScore, computerScore}})
   
+    //useEffect((hand) => { setPlayerHand(hand) }, [playerHand])
+
     const randomComputerHand = () => {
         const selectedHand = Math.floor(Math.random() * handsList.length)
         const randomHand = handsList[selectedHand].name
@@ -29,13 +32,11 @@ export default function GameScreen() {
 
     const handleSelect = (hand) => {
         setPlayerHand(hand)
-        console.log({playerHand})
-        //setComputerHand(randomComputerHand())
-    }
+        setComputerHand(randomComputerHand())
+        fight()
+    }  
     
-
     const fight = () => {
-        //setComputerHand(randomComputerHand())
         var winner = Rules.getWinner(playerHand,computerHand);
         if (winner === playerHand){
             setPlayerScore(playerScore+1)
@@ -51,7 +52,7 @@ export default function GameScreen() {
 
     const deleteDuelAfter = (timeOut) =>{
         setTimeout(()  => {
-            setPlayerHand('')
+            setPlayerHand()
             setComputerHand('')
         },timeOut)
     } 
@@ -90,7 +91,7 @@ export default function GameScreen() {
             </div>
         </div> 
 
-        {finishGame}
+        
         
     </div>
   )
