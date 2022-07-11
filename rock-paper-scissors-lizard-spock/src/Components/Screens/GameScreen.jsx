@@ -8,15 +8,19 @@ import { handsList } from '../Hands/handsList'
 import Hand from '../Hands/Hand'
 import Score from '../Score'
 import Rules from '../Rules'
+import { useLocation, useNavigate} from 'react-router-dom'
 
 export default function GameScreen() {
 
-    //const [gameState, setGameState] = useState()
-    //const [player, setPlayer] = useState()
     const [playerHand, setPlayerHand] = useState(null)
     const [playerScore, setPlayerScore] = useState(0)
     const [computerHand, setComputerHand] = useState('')
     const [computerScore, setComputerScore] = useState(0)
+    const [actualRound, setActualRound] = useState(1)
+    const location = useLocation()
+    const maxRounds = location?.state?.rounds
+    const navigate = useNavigate()
+    const goToGameScreen = () => navigate('/FinishScreen',{state:{playerScore, computerScore}})
 
     const randomComputerHand = () => {
         const selectedHand = Math.floor(Math.random() * handsList.length)
@@ -24,10 +28,9 @@ export default function GameScreen() {
         console.log("PC: " + randomHand)
         return randomHand 
     }
-
      
     const winAlert = () =>{
-        <Alert variant='success'> Player Win </Alert> 
+        return <Alert variant='success'> Player Win </Alert> 
     }
 
     const loseAlert = () =>{
@@ -50,6 +53,7 @@ export default function GameScreen() {
         }if((winner = 0)){
             tieAlert()
         }
+        setActualRound(actualRound+1)
     }
 
     const handleSelect = (hand) => {
@@ -58,12 +62,20 @@ export default function GameScreen() {
         fight()  
     }
 
+    const finishGame = () => {
+        if ({actualRound} == {maxRounds}) {
+            goToGameScreen()
+        }
+    }
+
   return (
     <div className='gamescreen'>
         <Score 
             playerScore ={playerScore}
             computerScore ={computerScore}
         />
+
+        <h1 className='text-center'> Rounds {actualRound} of {maxRounds}</h1>
 
         <Duel
             playerOption = {playerHand}
@@ -81,12 +93,9 @@ export default function GameScreen() {
                     ))
                 }   
             </div>
-        </div>
+        </div> 
 
-        <div className='text-center'>
-            <Button> Restart Game</Button>
-        </div>
-
+        {finishGame}
         
     </div>
   )

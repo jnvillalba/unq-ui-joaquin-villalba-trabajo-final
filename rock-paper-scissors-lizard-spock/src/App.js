@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import {BrowserRouter, Routes, Route}from 'react-router-dom'
 import MainScreen from './Components/Screens/MainScreen';
 import GameScreen from './Components/Screens/GameScreen';
+import FinishScreen from './Components/Screens/FinishScreen';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route index element={<MainScreen/>} />
         <Route exact path='/GameScreen' element={<GameScreen/>} />
+        <Route exact path='/FinishScreen' element={<FinishScreen/>} />
       </Routes>
     </BrowserRouter>
     

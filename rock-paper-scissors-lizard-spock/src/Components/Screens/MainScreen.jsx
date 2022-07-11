@@ -1,13 +1,16 @@
-import { Button } from 'react-bootstrap'
+import { Button, InputGroup } from 'react-bootstrap'
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import './MainScreen.css'
+import { useState } from 'react'
 
-export default function MainScreen(props) {
+export default function MainScreen() {
+
+  const[ rounds, setRounds] = useState(1)
 
   const navigate = useNavigate()
-  const goToGameScreen = () => navigate('/GameScreen')
-  
+  const goToGameScreen = () => navigate('/GameScreen' , {state:{rounds}})
+
   return (
     <div className='mainscreen text-center'>
         <h1 className='mainscreen-title'> Rock, Paper, Scissors, Lizard, Spock </h1>
@@ -16,7 +19,12 @@ export default function MainScreen(props) {
                 alt="gameLogo" />
         </div>
         <div className='mainscreen-menu'>
-            <Button onClick={goToGameScreen}>Start</Button>
+          <div className='rounds-selector'>
+            <p> Select number of rounds </p>
+            <input className='rounds' type="number" value={rounds} onChange={(e) => setRounds(e.target.value)}
+             min="1" max="100"></input>
+          </div> 
+          <Button onClick={goToGameScreen}>Start</Button>
         </div>
     </div>
   )

@@ -19,3 +19,14 @@
   text-align:center;
   width: 150px;
 }
+
+.rounds-selector{
+  text-align:center;
+  padding-bottom: 20px;
+}
+
+.rounds{
+  width: 50px;
+  text-align: center;
+}
+
