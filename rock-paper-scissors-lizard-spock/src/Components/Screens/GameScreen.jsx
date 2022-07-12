@@ -8,6 +8,7 @@ import './GameScreen.css'
 import { handsList } from '../Hands/handsList'
 import utils from './utils'
 import { useRef } from 'react'
+import { useEffect } from 'react'
 
 export default function GameScreen() {
 
@@ -15,13 +16,15 @@ export default function GameScreen() {
     const [playerScore, setPlayerScore] = useState(0)
     const computerHand = useRef("")
     const [computerScore, setComputerScore] = useState(0)
+
     const [actualRound, setActualRound] = useState(1)
+
     const [roundWinner, setRoundWinner] = useState("")
     const location = useLocation()
     const maxRounds = location?.state?.rounds
     const navigate = useNavigate()
-    const goToGameScreen = () => navigate('/FinishScreen',{state:{playerScore, computerScore}})
-  
+    const goToFinishScreen = () => navigate('/FinishScreen',{state:{playerScore, computerScore}})
+
     const setPlayerHand = (hand) =>{
         playerHand.current = hand
     }
@@ -39,9 +42,9 @@ export default function GameScreen() {
     const handleSelect = (hand) => {
         setPlayerHand(hand)
         console.log("P: " + hand)
-        setComputerHand("Paper")
-        console.log("Pc: " + Object.values(computerHand))
+        setComputerHand(randomComputerHand())
         fight()
+        
     }  
     
     const fight = () => {
@@ -56,6 +59,7 @@ export default function GameScreen() {
         }
         setRoundWinner(roundWinner)
         setActualRound(actualRound+1)
+        console.log("Figth() actualRound " +actualRound)
         deleteDuelAfter(2000)
         
     }
@@ -65,12 +69,16 @@ export default function GameScreen() {
             setPlayerHand("")
             setComputerHand("")
             setRoundWinner("")
+            finishGame()
         },timeOut)
+        
     } 
 
     const finishGame = () => {
-        if ({actualRound} === {maxRounds}) {
-            goToGameScreen()
+        if (actualRound === maxRounds) {
+            goToFinishScreen()
+            console.log("actualRound " + actualRound)
+            console.log("maxRounds " + maxRounds)
         }
     }
 

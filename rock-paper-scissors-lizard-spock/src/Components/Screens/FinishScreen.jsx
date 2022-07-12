@@ -8,16 +8,18 @@ export default function FinishScreen() {
     const location = useLocation()
     const playerScore = location?.state?.playerScore
     const computerScore = location?.state?.computerScore
+    console.log( "Finish Score Player" + playerScore)
+    console.log( "Finish Score PC" + computerScore)
 
-    const showWinner = () =>{
-        if(playerScore === computerScore){
-            return "It's A Tie!"
-        } if (playerScore > computerScore) {
-            return "You Win!"
-        } else {
-            return "You Lose!"
-        }
+    let showWinner
+    if(playerScore === computerScore){
+        showWinner =  ( <h1> "It's A Tie!"</h1> )
+    } if (playerScore > computerScore) {
+        showWinner =  ( <h1>"You Win!"</h1> )
+    } else {
+        showWinner =  (<h1>"You Lose!"</h1>)
     }
+    
   
     return (
       <div className='mainscreen text-center'>
