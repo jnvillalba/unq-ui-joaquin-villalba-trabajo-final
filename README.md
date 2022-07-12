@@ -3,11 +3,13 @@
 
 ### Como descargar el proyecto de GitHub
 
+#### 1. Descargue e instale git bash en su computadora,enlace: https://gitforwindows.org/
+
 #### 1. Hacer click en “Code”
 
 #### 2. En la pesataña abierta, copiar el link
 
-#### 3. Abrir la consola en una carpeta deseada donde se clonara el proyecto
+#### 3. Abrir git bash en una carpeta deseada donde se clonara el proyecto
 
 #### 4. En la consola ingresar el comando git clone + el link copiado: 
 ```sh
@@ -24,7 +26,7 @@ cd unq-ui-joaquin-villalba-trabajo-final
 npm install
 ```
 
-#### 7 El proyecto ya esta listo, inicielo con su controlador de paquetes ingresando:
+#### 7. El proyecto ya esta listo, inicielo con su controlador de paquetes ingresando:
 ```sh	
 npm start
 ```
