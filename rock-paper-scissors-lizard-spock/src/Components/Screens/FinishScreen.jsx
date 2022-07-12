@@ -13,36 +13,35 @@ export default function FinishScreen() {
 
     let showWinner
     if(playerScore === computerScore){
-        showWinner =  ( <h1>It's A Tie!</h1> )
+        showWinner =  "It's A Tie!"
     } if (playerScore > computerScore) {
-        showWinner =  ( <h1>You Win!</h1> )
+        showWinner =  "You Win!"
     } if (playerScore < computerScore) {
-        showWinner =  (<h1>You Lose!</h1>)
+        showWinner =  "You Lose!"
     }
     
     return (
-      <div className='mainscreen text-center'>
-          <h1 className='mainscreen-title'> {showWinner} </h1>
-          <h2 className='text-center'>Final Score:</h2>
-          <Table className='table-final-scores'>
-           
-            <tbody>
-                <tr>
-                    <td>Player</td>
-                    <td className='td'>{playerScore}</td>
-                </tr>
-                <tr>
-                    <td>Computer</td>
-                    <td className='td'>{computerScore}</td>
-                </tr>
-            </tbody>
+        <div className='mainscreen text-center'>
+            <h1 className='mainscreen-title'> {showWinner} </h1>
+            <h2 className='text-center'>Final Score:</h2>
+            <Table className='table-final-scores'>
+                <tbody>
+                    <tr>
+                        <td>Player</td>
+                        <td className='td'>{playerScore}</td>
+                    </tr>
+                    <tr>
+                        <td>Computer</td>
+                        <td className='td'>{computerScore}</td>
+                    </tr>
+                  </tbody>
           </Table>
           <div className='mainscreen-menu'>
             <div className='text-center'>
                 <button className='mainButton' onClick={goToMainScreen}> Restart Game</button>
             </div>
           </div>
-      </div>
+        </div>
     )
 
 

@@ -1,5 +1,4 @@
 import './App.css';
-import {useEffect, useState} from 'react';
 import {BrowserRouter, Routes, Route}from 'react-router-dom'
 import MainScreen from './Components/Screens/MainScreen';
 import GameScreen from './Components/Screens/GameScreen';
@@ -21,29 +20,9 @@ function App() {
     </BrowserRouter>
     
     </>
-    
 
   )
 
 }
 
 export default App;
-
-/*
-*Player
--Elegir jugada
--ver puntuacion
-*Computer
--elegir random mano
-*/
-
-/**<div className='app'>
-      { stateGame === 0 ?
-        <MainScreen
-          setStart = {changeStateGame}
-        /> : <GameScreen/>
-      }
-      
-    </div> */
-
-    ///
