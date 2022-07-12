@@ -21,8 +21,10 @@ export default function MainScreen() {
         <div className='mainscreen-menu'>
           <div className='rounds-selector'>
             <p> Select number of rounds </p>
-            <input className='rounds' type="number" value={rounds} onChange={(e) => setRounds(e.target.value)}
-             min="1" max="100"></input>
+            <input className='rounds' type="number" value={rounds}
+              onChange={(e) => setRounds(e.target.value)}
+              min="1" max="100">
+            </input>
           </div> 
           <Button onClick={goToGameScreen}>Start</Button>
         </div>

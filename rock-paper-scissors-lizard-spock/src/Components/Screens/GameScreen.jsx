@@ -14,16 +14,19 @@ export default function GameScreen() {
 
     const playerHand = useRef("")
     const [playerScore, setPlayerScore] = useState(0)
-    const computerHand = useRef("")
     const [computerScore, setComputerScore] = useState(0)
-
+    const computerHand = useRef("")
     const [actualRound, setActualRound] = useState(1)
-
     const [roundWinner, setRoundWinner] = useState("")
     const location = useLocation()
-    const maxRounds = location?.state?.rounds
+    const maxRounds = parseInt(location?.state?.rounds)
     const navigate = useNavigate()
-    const goToFinishScreen = () => navigate('/FinishScreen',{state:{playerScore, computerScore}})
+    const goToFinishScreen = (state) => navigate('/FinishScreen',{state})
+
+    useEffect(()=>{
+        setTimeout(()  => {console.log("useEffectfinish")
+        finishGame()},800)
+    },[actualRound])
 
     const setPlayerHand = (hand) =>{
         playerHand.current = hand
@@ -34,7 +37,8 @@ export default function GameScreen() {
 
     const randomComputerHand = () => {
         const selectedHand = Math.floor(Math.random() * handsList.length)
-        const randomHand = handsList[selectedHand].name
+        //const randomHand = handsList[selectedHand].name
+        const randomHand = "Rock"
         console.log("PC: " + randomHand)
         return randomHand 
     }
@@ -44,7 +48,6 @@ export default function GameScreen() {
         console.log("P: " + hand)
         setComputerHand(randomComputerHand())
         fight()
-        
     }  
     
     const fight = () => {
@@ -52,14 +55,16 @@ export default function GameScreen() {
         console.log('roundResult: ' + roundWinner)
         if (roundWinner === "Win"){
             setPlayerScore(playerScore+1)
+            console.log("Score" + playerScore)
         }if((roundWinner === "Lose")){
             setComputerScore(computerScore+1)
+            console.log("Score pc " + computerScore)
         }if((roundWinner === "Tie")){
             console.log("Tie")
         }
         setRoundWinner(roundWinner)
         setActualRound(actualRound+1)
-        console.log("Figth() actualRound " +actualRound)
+        console.log("Figth() actualRound "+actualRound)
         deleteDuelAfter(2000)
         
     }
@@ -69,14 +74,16 @@ export default function GameScreen() {
             setPlayerHand("")
             setComputerHand("")
             setRoundWinner("")
-            finishGame()
         },timeOut)
         
     } 
 
     const finishGame = () => {
-        if (actualRound === maxRounds) {
-            goToFinishScreen()
+        console.log("actualRound " + actualRound)
+            console.log("maxRounds " + maxRounds)
+        if (actualRound-1 === maxRounds) {
+            console.log("gotofinish ", {playerScore, computerScore})
+            goToFinishScreen({playerScore, computerScore})
             console.log("actualRound " + actualRound)
             console.log("maxRounds " + maxRounds)
         }
