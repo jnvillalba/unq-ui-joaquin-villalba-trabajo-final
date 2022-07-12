@@ -96,7 +96,7 @@ export default function GameScreen() {
             computerScore ={computerScore}
         />
 
-        <h1 className='text-center'> Round {actualRound} of {maxRounds}</h1>
+        <h1 className='rounds-title text-center'> Round {actualRound} of {maxRounds}</h1>
         
         <Duel
             playerOption = {Object.values(playerHand).toString()}
