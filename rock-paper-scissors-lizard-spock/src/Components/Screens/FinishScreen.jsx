@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Table } from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 import {useNavigate, useLocation} from 'react-router-dom'
 
 export default function FinishScreen() {
@@ -8,8 +8,6 @@ export default function FinishScreen() {
     const location = useLocation()
     const playerScore = parseInt(location?.state?.playerScore)
     const computerScore = parseInt(location?.state?.computerScore)
-    //const playerScore =location?.state?.playerScore
-    //const computerScore = location?.state?.computerScore
     console.log( "Finish Score Player " + playerScore)
     console.log( "Finish Score PC " + computerScore)
 
@@ -31,11 +29,11 @@ export default function FinishScreen() {
             <tbody>
                 <tr>
                     <td>Player</td>
-                    <td>{playerScore}</td>
+                    <td className='td'>{playerScore}</td>
                 </tr>
                 <tr>
                     <td>Computer</td>
-                    <td>{computerScore}</td>
+                    <td className='td'>{computerScore}</td>
                 </tr>
             </tbody>
           </Table>
