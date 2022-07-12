@@ -8,8 +8,6 @@ export default function FinishScreen() {
     const location = useLocation()
     const playerScore = parseInt(location?.state?.playerScore)
     const computerScore = parseInt(location?.state?.computerScore)
-    console.log( "Finish Score Player " + playerScore)
-    console.log( "Finish Score PC " + computerScore)
 
     let showWinner
     if(playerScore === computerScore){

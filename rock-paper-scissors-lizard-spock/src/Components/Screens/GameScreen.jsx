@@ -26,16 +26,13 @@ export default function GameScreen() {
 
     const handleShowHands = () =>{
         if(!playerHand){
-            console.log("TRUE")
             setShowHands(true)
         }else{
-            console.log("FALSE")
             setShowHands(false)
         }
     }
     useEffect(()=>{
-        setTimeout(()  => {console.log("useEffectfinish")
-        checkFinishGame()},800)
+        setTimeout(()  => {checkFinishGame()},800)
     },[actualRound])
 
     const setPlayerHand = (hand) =>{
@@ -49,31 +46,24 @@ export default function GameScreen() {
     const randomComputerHand = () => {
         const selectedHand = Math.floor(Math.random() * handsList.length)
         const randomHand = handsList[selectedHand].name
-        console.log("PC: " + randomHand)
         return randomHand 
     }
 
     const handleSelect = (hand) => {
         setPlayerHand(hand)
-        console.log("P: " + hand)
         setComputerHand(randomComputerHand())
         fight()
     }  
     
     const fight = () => {
         var roundWinner = Rules.getWinner(playerHand,computerHand)
-        console.log('roundResult: ' + roundWinner)
         if (roundWinner === "Win"){
             setPlayerScore(playerScore+1)
-            console.log("Score" + playerScore)
         }if((roundWinner === "Lose")){
             setComputerScore(computerScore+1)
-            console.log("Score pc " + computerScore)
         }if((roundWinner === "Tie")){
-            console.log("Tie")
         }
         setRoundWinner(roundWinner)
-        console.log("Figth() actualRound "+actualRound)
         deleteDuelAfter(2000)
         setActualRound(actualRound+1)
         
@@ -91,13 +81,9 @@ export default function GameScreen() {
     } 
 
     const checkFinishGame = () => {
-        console.log("actualRound " + actualRound)
-            console.log("maxRounds " + maxRounds)
         if (actualRound-1 === maxRounds) {
-            console.log("gotofinish ", {playerScore, computerScore})
             goToFinishScreen({playerScore, computerScore})
-            console.log("actualRound " + actualRound)
-            console.log("maxRounds " + maxRounds)
+
         }
     }
 
