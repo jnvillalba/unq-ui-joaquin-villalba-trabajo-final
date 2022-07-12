@@ -22,6 +22,18 @@ export default function GameScreen() {
     const navigate = useNavigate()
     const goToFinishScreen = (state) => navigate('/FinishScreen',{state})
 
+    const [showHands, setShowHands] = useState(true)
+
+    const handleShowHands = () =>{
+        if(!playerHand){
+            console.log("TRUE")
+            setShowHands(true)
+        }else{
+            console.log("FALSE")
+            setShowHands(false)
+        }
+    }
+
     useEffect(()=>{
         setTimeout(()  => {console.log("useEffectfinish")
         finishGame()},800)
@@ -29,6 +41,7 @@ export default function GameScreen() {
 
     const setPlayerHand = (hand) =>{
         playerHand.current = hand
+        handleShowHands()
     }
     const setComputerHand = (hand) =>{
         computerHand.current = hand
@@ -72,6 +85,7 @@ export default function GameScreen() {
             setPlayerHand("")
             setComputerHand("")
             setRoundWinner("")
+            setShowHands(true)
         },timeOut)
         
     } 
@@ -99,17 +113,15 @@ export default function GameScreen() {
         <Duel
             playerOption = {Object.values(playerHand).toString()}
             botOption = {Object.values(computerHand).toString()}
-            figth = {fight}
             winner = {roundWinner}
         />
-        
 
         <div className='hands-container'>
             <div>Select a Hand:</div>
             <div className='gamescreen-hands'>
             { 
                 handsList.map((hand) => (
-                    <Hand key={hand.id} image={hand.image} name={hand.name} 
+                    <Hand key={hand.id} disabled={!showHands} image={hand.image} name={hand.name} 
                         setAHand={handleSelect}
                     />)
                 )
