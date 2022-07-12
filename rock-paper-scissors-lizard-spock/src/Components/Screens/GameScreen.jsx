@@ -6,7 +6,6 @@ import Score from '../Score'
 import Rules from '../Rules'
 import './GameScreen.css'
 import { handsList } from '../Hands/handsList'
-import utils from './utils'
 import { useRef } from 'react'
 import { useEffect } from 'react'
 

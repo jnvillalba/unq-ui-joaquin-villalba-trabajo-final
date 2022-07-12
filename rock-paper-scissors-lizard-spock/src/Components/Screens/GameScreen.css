@@ -2,6 +2,7 @@
     padding: 20px;
     width: 100%;
     background-image: linear-gradient(to right, #24243e, #302b63, #24243e);
+    min-height: 100vh;
   }
   
   .gamescreen-hands {

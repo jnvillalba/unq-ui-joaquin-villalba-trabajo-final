@@ -2,6 +2,7 @@
     padding: 20px;
     color: aliceblue;
     background-image: linear-gradient(to right, #24243e, #302b63, #24243e);
+    min-height: 100vh;
   }
 
 .mainscreen-title {
@@ -13,7 +14,6 @@
 .mainscreen-menu {
     padding: 20px 10px;
 }
-
 
 .gameLogo{
   text-align:center;
