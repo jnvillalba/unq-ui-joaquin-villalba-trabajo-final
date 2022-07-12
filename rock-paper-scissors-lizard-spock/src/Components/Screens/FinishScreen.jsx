@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Table } from 'react-bootstrap'
 import {useNavigate, useLocation} from 'react-router-dom'
 
 export default function FinishScreen() {
@@ -25,13 +25,27 @@ export default function FinishScreen() {
     return (
       <div className='mainscreen text-center'>
           <h1 className='mainscreen-title'> {showWinner} </h1>
-          <h2 className='mainscreen-title'> Player Score: {playerScore} </h2>
-          <h2 className='mainscreen-title'>Computer Score: {computerScore} </h2>
+          <h2 className='text-center'>Final Score:</h2>
+          <Table className='table-final-scores'>
+           
+            <tbody>
+                <tr>
+                    <td>Player</td>
+                    <td>{playerScore}</td>
+                </tr>
+                <tr>
+                    <td>Computer</td>
+                    <td>{computerScore}</td>
+                </tr>
+            </tbody>
+          </Table>
           <div className='mainscreen-menu'>
             <div className='text-center'>
-            <button className='mainButton' onClick={goToMainScreen}> Restart Game</button>
+                <button className='mainButton' onClick={goToMainScreen}> Restart Game</button>
             </div>
           </div>
       </div>
     )
+
+
 }
