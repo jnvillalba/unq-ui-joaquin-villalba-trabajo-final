@@ -9,6 +9,7 @@
     align-items: center;
     color: black;
     background-color: aliceblue;
+    
   }
   
   .definitive-option {
@@ -17,8 +18,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 285%;
     font-weight: 500;
+    font-size: calc(4vw + 4vh + 2vmin);
   }
   
   .vs {
@@ -26,7 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 200%;
+    font-size: calc(2vw + 2vh + 2vmin);
   }
 
   .winner-text{

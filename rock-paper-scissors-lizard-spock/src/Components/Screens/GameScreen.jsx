@@ -1,6 +1,6 @@
 import React, {useState } from 'react'
 import { useLocation, useNavigate} from 'react-router-dom'
-import Duel from './Duel'
+import Duel from '../Duel'
 import Hand from '../Hands/Hand'
 import Score from '../Score'
 import Rules from '../Rules'
@@ -33,10 +33,9 @@ export default function GameScreen() {
             setShowHands(false)
         }
     }
-
     useEffect(()=>{
         setTimeout(()  => {console.log("useEffectfinish")
-        finishGame()},800)
+        checkFinishGame()},800)
     },[actualRound])
 
     const setPlayerHand = (hand) =>{
@@ -74,9 +73,9 @@ export default function GameScreen() {
             console.log("Tie")
         }
         setRoundWinner(roundWinner)
-        setActualRound(actualRound+1)
         console.log("Figth() actualRound "+actualRound)
         deleteDuelAfter(2000)
+        setActualRound(actualRound+1)
         
     }
 
@@ -88,9 +87,10 @@ export default function GameScreen() {
             setShowHands(true)
         },timeOut)
         
+        
     } 
 
-    const finishGame = () => {
+    const checkFinishGame = () => {
         console.log("actualRound " + actualRound)
             console.log("maxRounds " + maxRounds)
         if (actualRound-1 === maxRounds) {
