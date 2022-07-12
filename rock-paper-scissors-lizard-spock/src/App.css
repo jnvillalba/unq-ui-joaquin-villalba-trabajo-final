@@ -85,10 +85,20 @@
   margin: 10px 0;
   border-radius: 15px;
   cursor: pointer;
+  
 }
 
-/* finish screen */
-.finishscreen{
-  color: aliceblue;
+.mainButton{
+  border-radius: 25px;
+  width: 30%;
+  height: 12vh;
+    
+  
+}
+.mainButton:active,
+.mainButton:focus,
+.mainButton:hover {
+	outline: none;
+	border-color: gray;
 }
 

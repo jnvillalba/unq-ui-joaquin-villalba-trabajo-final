@@ -29,7 +29,7 @@ export default function FinishScreen() {
           <h2 className='mainscreen-title'>Computer Score: {computerScore} </h2>
           <div className='mainscreen-menu'>
             <div className='text-center'>
-                <Button onClick={goToMainScreen}> Restart Game</Button>
+            <button className='mainButton' onClick={goToMainScreen}> Restart Game</button>
             </div>
           </div>
       </div>

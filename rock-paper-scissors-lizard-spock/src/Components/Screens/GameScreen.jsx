@@ -36,8 +36,7 @@ export default function GameScreen() {
 
     const randomComputerHand = () => {
         const selectedHand = Math.floor(Math.random() * handsList.length)
-        //const randomHand = handsList[selectedHand].name
-        const randomHand = "Rock"
+        const randomHand = handsList[selectedHand].name
         console.log("PC: " + randomHand)
         return randomHand 
     }

@@ -1,4 +1,3 @@
-import { Button} from 'react-bootstrap'
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import './MainScreen.css'
@@ -26,7 +25,7 @@ export default function MainScreen() {
               min="1" max="100">
             </input>
           </div> 
-          <Button onClick={goToGameScreen}>Start</Button>
+          <button className='mainButton' onClick={goToGameScreen}>Start</button>
         </div>
     </div>
   )
