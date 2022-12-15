@@ -35,8 +35,8 @@
     position: absolute;
     bottom: 65%;
     margin-top: 20px;
+    margin-bottom: 40px;
     border-radius: 15px;
-    justify-content: center;
-    align-items: center;
     font-size: 30px;
+  
   }
