@@ -1,8 +1,8 @@
 {
-  "homepage":"https://jnvillalba.github.io/rock-paper-scissors-lizard-spock/" ,
-  "name": "rock-paper-scissors-lizard-spock",
+   "name": "rock-paper-scissors-lizard-spock",
   "version": "0.1.0",
   "private": true,
+  "homepage":"https://jnvillalba.github.io/unq-ui-joaquin-villalba-trabajo-final/build",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
